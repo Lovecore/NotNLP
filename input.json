@@ -1,0 +1,470 @@
+[
+    {
+        "text": "I love this Dr. Office!",
+        "label": 1
+    },
+    {
+        "text": "This is the worst experience I've had.",
+        "label": -1
+    },
+    {
+        "label": 0,
+        "text": "It's okay, not great but not bad."
+    },
+    {
+        "text": "It's okay, not great but not bad.",
+        "label": 0
+    },
+    {
+        "text": "My recent visit to St. Mary's Medical Center was quite disappointing. I had been experiencing severe back pain and was hoping to see a specialist. Instead, I was shuffled between various departments without a clear explanation of what was happening. The lack of communication between the staff was frustrating, and I felt like I was lost in the system. Eventually, I did get to see a specialist, but it took hours of waiting. While the care I received was adequate, the overall experience left me frustrated and disheartened.",
+        "label": -1
+    },
+    {
+        "text": "My visit to Mercy General Hospital for a routine checkup was far from satisfactory. I was expecting a smooth and efficient process, but it turned out to be quite the opposite. The staff seemed overwhelmed and understaffed, leading to long wait times and confusion. I had to wait for hours just to see a nurse, and even then, I was given conflicting information about my test results. The lack of coordination and clarity in their services made me question the quality of care I was receiving.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "My experience at Memorial Hospital and Health Care Center was quite frustrating. I had scheduled an appointment for a minor surgical procedure, and I expected everything to run smoothly. However, I encountered several delays and miscommunications during my visit. The pre-operative instructions were not clear, and the administrative staff seemed disorganized. This led to unnecessary stress on the day of my surgery. While the medical team eventually performed the procedure well, the administrative issues before and after left a negative impression."
+    },
+    {
+        "text": "My recent visit to Regional Medical Center was nothing short of a nightmare. I went in with a high fever and severe flu symptoms, expecting to receive timely and appropriate care. However, I encountered the worst level of service imaginable. The waiting room was crowded, and I had to endure an agonizingly long wait. When I finally saw a doctor, their bedside manner was terrible, and they seemed disinterested. It was a frustrating and distressing experience, and I left the hospital feeling even worse than when I arrived.",
+        "label": -1
+    },
+    {
+        "text": "I can't emphasize enough how terrible my experience was at Greenfield General Hospital. I had a scheduled surgery, and I expected everything to go smoothly. Instead, it turned into the worst ordeal of my life. The surgery was delayed without explanation, and the staff seemed completely disorganized. My post-operative care was subpar, and I felt neglected. This hospital's lack of professionalism and empathy left me frustrated and deeply disappointed.",
+        "label": -1
+    },
+    {
+        "text": "My day at Sunrise Community Hospital was incredibly frustrating. I had a loved one admitted for a serious condition, and the lack of communication was terrible. The staff appeared overwhelmed, and we struggled to get updates on the patient's condition. It was disheartening to see the lack of coordination among the medical team. This experience was far from what we expected during a critical time.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "My recent visit to Riverside Medical Center left me with a bad taste in my mouth. I sought treatment for a persistent cough and fever, but the care I received was far from satisfactory. The doctor's diagnosis seemed rushed, and the prescribed treatment didn't alleviate my symptoms. I felt like just another number in their system, and the overall experience was terrible. I left the hospital without any improvement in my condition and a sense of frustration."
+    },
+    {
+        "label": -1,
+        "text": "I had a terrible experience at Hillside Clinic during a routine checkup. The wait times were extraordinarily long, and when I finally saw the doctor, they barely spent any time with me. I left with more questions than answers about my health. The lack of attention and care was frustrating, and I felt like my concerns were dismissed. This clinic's service was far below what I consider acceptable in healthcare."
+    },
+    {
+        "label": -1,
+        "text": "My recent visit to City General Hospital was quite disappointing. I had hoped for a higher standard of care, but instead, I encountered numerous issues. The staff appeared disinterested, and the facilities seemed outdated. It was a stark reminder of the shortcomings in our healthcare system. I left the hospital feeling disheartened and questioning the quality of care that patients like me receive."
+    },
+    {
+        "text": "My day at Lakeside Medical Center was far from pleasant. I had a scheduled appointment, and the wait was longer than expected. The receptionist's attitude was less than friendly, and the overall atmosphere felt unwelcoming. It was disheartening to witness such a lack of patient-centered care. This experience left me with a lingering sense of dissatisfaction.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "My experience at Westview Health Clinic was discouraging, to say the least. I was seeking treatment for a chronic condition, but the doctor seemed disengaged and offered minimal information. The clinic's administrative process was needlessly complicated, adding to my frustration. It's disheartening when you expect thorough and compassionate care but encounter the opposite."
+    },
+    {
+        "text": "My recent visit to Unity Medical Center was rather upsetting. I was hoping for a smooth experience, but the lack of coordination among the medical staff was evident. It took multiple attempts just to get a simple question answered. This experience left me with a sense of disillusionment about the state of healthcare, where patient needs often seem to be a secondary concern.",
+        "label": -1
+    },
+    {
+        "text": "My day at Evergreen Hospital was truly dismal. I went in with a genuine health concern, but the long wait times and indifferent staff made the experience incredibly frustrating. It's disheartening when you realize that the healthcare system, which should prioritize patient well-being, can sometimes fall short of even basic expectations.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "My recent visit to City General Hospital was quite disappointing. I had hoped for a higher standard of care, but instead, I encountered numerous issues. The staff appeared disinterested, and the facilities seemed outdated. It was a stark reminder of the shortcomings in our healthcare system. I left the hospital feeling disheartened and questioning the quality of care that patients like me receive."
+    },
+    {
+        "text": "My day at Lakeside Medical Center was far from pleasant. I had a scheduled appointment, and the wait was longer than expected. The receptionist's attitude was less than friendly, and the overall atmosphere felt unwelcoming. It was disheartening to witness such a lack of patient-centered care. This experience left me with a lingering sense of dissatisfaction.",
+        "label": -1
+    },
+    {
+        "text": "My experience at Westview Health Clinic was discouraging, to say the least. I was seeking treatment for a chronic condition, but the doctor seemed disengaged and offered minimal information. The clinic's administrative process was needlessly complicated, adding to my frustration. It's disheartening when you expect thorough and compassionate care but encounter the opposite.",
+        "label": -1
+    },
+    {
+        "text": "My recent visit to Unity Medical Center was rather upsetting. I was hoping for a smooth experience, but the lack of coordination among the medical staff was evident. It took multiple attempts just to get a simple question answered. This experience left me with a sense of disillusionment about the state of healthcare, where patient needs often seem to be a secondary concern.",
+        "label": -1
+    },
+    {
+        "text": "My day at Evergreen Hospital was truly dismal. I went in with a genuine health concern, but the long wait times and indifferent staff made the experience incredibly frustrating. It's disheartening when you realize that the healthcare system, which should prioritize patient well-being, can sometimes fall short of even basic expectations.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "My recent visit to Oceanview Medical Center was nothing short of a nightmare. From the moment I arrived, it was clear that the staff were overwhelmed and disorganized. The wait times were excruciatingly long, and the lack of communication between the medical team left me feeling frustrated and anxious."
+    },
+    {
+        "label": -1,
+        "text": "I had the misfortune of visiting Sunshine Hospital last week, and it was a terrible experience from start to finish. The facilities were in a state of disrepair, and the medical staff seemed disinterested in providing quality care. It's disheartening when you realize that the place you turn to for help can be so disappointing."
+    },
+    {
+        "label": -1,
+        "text": "My visit to Green Valley Clinic left me thoroughly disappointed. Despite having an appointment, I had to wait for hours before I even got to see a nurse. The whole experience was incredibly frustrating, and I left with a sense of dissatisfaction and a lack of trust in the healthcare system."
+    },
+    {
+        "label": -1,
+        "text": "I had high hopes for my visit to Mountain View Hospital, but it turned out to be the worst hospital experience of my life. The staff was unprofessional, and the cleanliness of the facilities was questionable at best. It's disheartening to think that such subpar care is what patients might encounter."
+    },
+    {
+        "text": "My recent encounter at Sunset Health Center was nothing short of awful. The doctor's bedside manner was terrible, and they seemed completely disinterested in my concerns. The whole experience left me feeling frustrated and unheard.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "I visited Skyline Medical Clinic for a routine checkup, but it was a thoroughly frustrating experience. The administrative process was a mess, and the staff seemed disorganized. It's disheartening to see such a lack of efficiency in a healthcare setting."
+    },
+    {
+        "text": "My time at Golden State Hospital was a day I'd rather forget. The wait times were excessive, and the lack of clear communication about my treatment plan left me feeling frustrated and anxious. It's disheartening when you expect compassionate care and encounter the opposite.",
+        "label": -1
+    },
+    {
+        "text": "My recent trip to Meadowbrook Health Center was less than pleasant. The nurses seemed overwhelmed, and the overall atmosphere was chaotic. It's disheartening to see a healthcare facility in such disarray.",
+        "label": -1
+    },
+    {
+        "text": "I had a terrible experience at Sunrise Community Hospital. The lack of coordination among the staff was evident, and I felt like I was just another number in their system. It's disheartening when you expect quality care and encounter the opposite.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "My visit to Riverside Regional Medical Center was a frustrating ordeal. The wait times were interminable, and when I finally saw a doctor, they seemed disinterested in addressing my concerns. It's disheartening when you seek medical help and encounter such a lackluster experience."
+    },
+    {
+        "label": -1,
+        "text": "My recent visit to Oceanview Medical Center was nothing short of a nightmare. From the moment I arrived, it was clear that the staff were overwhelmed and disorganized. The wait times were excruciatingly long, and the lack of communication between the medical team left me feeling frustrated and anxious."
+    },
+    {
+        "label": -1,
+        "text": "I had the misfortune of visiting Sunshine Hospital last week, and it was a terrible experience from start to finish. The facilities were in a state of disrepair, and the medical staff seemed disinterested in providing quality care. It's disheartening when you realize that the place you turn to for help can be so disappointing."
+    },
+    {
+        "label": -1,
+        "text": "My visit to Green Valley Clinic left me thoroughly disappointed. Despite having an appointment, I had to wait for hours before I even got to see a nurse. The whole experience was incredibly frustrating, and I left with a sense of dissatisfaction and a lack of trust in the healthcare system."
+    },
+    {
+        "text": "I had high hopes for my visit to Mountain View Hospital, but it turned out to be the worst hospital experience of my life. The staff was unprofessional, and the cleanliness of the facilities was questionable at best. It's disheartening to think that such subpar care is what patients might encounter.",
+        "label": -1
+    },
+    {
+        "text": "My recent encounter at Sunset Health Center was nothing short of awful. The doctor's bedside manner was terrible, and they seemed completely disinterested in my concerns. The whole experience left me feeling frustrated and unheard.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "I visited Skyline Medical Clinic for a routine checkup, but it was a thoroughly frustrating experience. The administrative process was a mess, and the staff seemed disorganized. It's disheartening to see such a lack of efficiency in a healthcare setting."
+    },
+    {
+        "text": "My time at Golden State Hospital was a day I'd rather forget. The wait times were excessive, and the lack of clear communication about my treatment plan left me feeling frustrated and anxious. It's disheartening when you expect compassionate care and encounter the opposite.",
+        "label": -1
+    },
+    {
+        "text": "My recent trip to Meadowbrook Health Center was less than pleasant. The nurses seemed overwhelmed, and the overall atmosphere was chaotic. It's disheartening to see a healthcare facility in such disarray.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "I had a terrible experience at Sunrise Community Hospital. The lack of coordination among the staff was evident, and I felt like I was just another number in their system. It's disheartening when you expect quality care and encounter the opposite."
+    },
+    {
+        "text": "My visit to Riverside Regional Medical Center was a frustrating ordeal. The wait times were interminable, and when I finally saw a doctor, they seemed disinterested in addressing my concerns. It's disheartening when you seek medical help and encounter such a lackluster experience.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "My recent stay at Crestview Hospital was utterly disheartening. The nurses seemed overwhelmed, and basic hygiene standards were not met. I felt like my health was being compromised rather than improved during my time there."
+    },
+    {
+        "text": "I had a terrible experience at Willowbrook Medical Center. The doctor's diagnosis was rushed, and I was prescribed medication that didn't help at all. It's frustrating when you leave a medical facility feeling worse than when you arrived.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "My visit to Pine Ridge Clinic was a lesson in frustration. Despite having an appointment, I had to wait for hours in a crowded waiting room. The lack of respect for patients' time was appalling."
+    },
+    {
+        "label": -1,
+        "text": "I can't emphasize enough how awful my encounter at Sierra Vista Hospital was. The medical staff's indifference to my concerns made me question the quality of care. It's disheartening when you expect empathy and receive apathy."
+    },
+    {
+        "text": "My day at Lakeside Health Center was a disappointment from beginning to end. The administrative staff was unhelpful, and the nurses seemed disorganized. It's frustrating when you're trying to navigate a complex healthcare system.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "I visited Redwood General Hospital with high hopes, but it turned out to be a regrettable experience. The lack of communication between departments left me feeling like no one knew what was happening. It's disheartening when you're left in the dark about your own health."
+    },
+    {
+        "label": -1,
+        "text": "My recent trip to Willowbrook Clinic was a frustrating ordeal. The doctor barely listened to my symptoms and rushed through the appointment. I left with more questions than answers."
+    },
+    {
+        "text": "I had a terrible experience at Cedar Grove Medical Center. The waiting times were excessive, and the staff's attitude was dismissive. It's frustrating when you feel like you're not being taken seriously as a patient.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "My visit to Hillside Health Center was an exercise in patience, and not in a good way. The disorganization was palpable, and I left feeling like my time was wasted."
+    },
+    {
+        "label": -1,
+        "text": "I can't find words to describe how awful my encounter at Oakwood Hospital was. The lack of empathy and professionalism among the staff was astounding. It's disheartening when you realize that some healthcare providers are more interested in their routines than patient well-being."
+    },
+    {
+        "text": "My recent visit to Valley View Medical Center was nothing short of a disaster. The medical staff displayed a complete lack of empathy, and the cleanliness of the facility was questionable at best. It's disheartening when you expect competent care and encounter the opposite.",
+        "label": -1
+    },
+    {
+        "text": "I had a terrible experience at Northside Clinic. The wait times were unreasonably long, and the doctor's rushed diagnosis left me feeling frustrated and unheard. It's frustrating when your health concerns are treated with such disregard.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "My visit to Harborview Hospital was a frustrating ordeal. The administrative process was a bureaucratic nightmare, and the staff's attitude was far from accommodating. It's disheartening when you need medical assistance and encounter such red tape."
+    },
+    {
+        "label": -1,
+        "text": "I visited Pinecrest Health Center for a minor procedure, but it turned into a major source of frustration. The lack of communication about the aftercare instructions led to complications, and the staff's indifference only made matters worse."
+    },
+    {
+        "label": -1,
+        "text": "My day at Willowbrook Regional Medical Center was a dreadful experience. The wait times were interminable, and the medical team's lack of coordination was evident. It's disheartening when you expect competent care and receive the opposite."
+    },
+    {
+        "label": -1,
+        "text": "I can't believe how awful my encounter at Meadowside Hospital was. The nurses were disinterested, and the doctor barely spent any time with me. It's frustrating when you're trying to discuss your health concerns and feel brushed aside."
+    },
+    {
+        "text": "My recent trip to Elmwood Clinic left me thoroughly disappointed. Despite having an appointment, I had to wait for hours in the crowded waiting area. The inefficiency of the staff was disheartening.",
+        "label": -1
+    },
+    {
+        "text": "I had a terrible experience at Riverbend Medical Center. The doctor seemed rushed and disengaged, and the prescribed treatment didn't improve my condition. It's frustrating when you expect effective care and encounter the opposite.",
+        "label": -1
+    },
+    {
+        "text": "My visit to Summit Health Center was a lesson in frustration. The lack of clear communication between the staff members made the experience unnecessarily complicated. It's disheartening when you're left to navigate the healthcare system's intricacies on your own.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "I can't describe how awful my encounter at Evergreen Regional Hospital was. The lack of compassion and professionalism among the staff was shocking. It's disheartening when you expect quality care and receive the opposite."
+    },
+    {
+        "text": "My recent visit to Peninsula General Hospital was a complete nightmare. The level of incompetence displayed by the medical staff was beyond belief. I felt like my life was in danger rather than being in a place of healing.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "I had an absolutely horrendous experience at Lakeside Medical Center. The doctor misdiagnosed my condition, and I ended up in excruciating pain for days. It's hard to fathom how a healthcare facility can get things so terribly wrong."
+    },
+    {
+        "text": "My visit to Meadowside Clinic was a nightmare I wouldn't wish on anyone. The lack of basic hygiene standards was appalling, and the staff's indifference to patient comfort was shocking. It's infuriating when you're treated with such neglect.",
+        "label": -1
+    },
+    {
+        "text": "I can't begin to describe how terrible my encounter at Pinnacle Regional Hospital was. The medical team's incompetence resulted in a botched procedure that left me with lasting complications. It's distressing when you go to a hospital for help and leave in worse condition.",
+        "label": -1
+    },
+    {
+        "text": "My day at Hopeville Medical Center was a living nightmare. The unprofessionalism among the staff was astonishing, and I felt like a pawn in a chaotic game rather than a patient in need of care.",
+        "label": -1
+    },
+    {
+        "text": "I had an incredibly distressing experience at Valley Vista Hospital. The nurses ignored my pleas for assistance, and I was left in agony for hours. It's infuriating when you're treated with such blatant disregard for your well-being.",
+        "label": -1
+    },
+    {
+        "label": -1,
+        "text": "My recent trip to Cascade Health Center was an absolute disaster. The doctor's negligence resulted in a severe allergic reaction to medication, putting my life at risk. It's terrifying when you entrust your health to professionals and they make such egregious mistakes."
+    },
+    {
+        "label": -1,
+        "text": "I can't express how awful my encounter at Summit Regional Medical Center was. The lack of compassion and basic care standards left me feeling dehumanized. It's incomprehensible how a place of healing can be so devoid of empathy."
+    },
+    {
+        "label": -1,
+        "text": "My visit to Westside Clinic was a harrowing experience I'll never forget. The miscommunication among the staff led to a series of incorrect treatments, causing further harm. It's maddening when you're subjected to such blatant medical negligence."
+    },
+    {
+        "text": "I had an utterly traumatic experience at Brookside Hospital. The doctor's incompetence during surgery led to a life-threatening complication. It's unimaginable how a healthcare facility can jeopardize a patient's life in such a horrifying manner.",
+        "label": -1
+    },
+    {
+        "text": "My recent visit to Harborview Medical Center was neither exceptional nor disappointing. The medical staff provided the necessary care, and the facilities were adequate. It was a standard healthcare experience.",
+        "label": 0
+    },
+    {
+        "text": "I had a routine checkup at Northfield Clinic, and the experience was unremarkable. The administrative process was smooth, and the doctor addressed my concerns efficiently. It was a typical visit to a healthcare facility.",
+        "label": 0
+    },
+    {
+        "text": "My recent trip to Summit General Hospital for a minor injury was straightforward. The wait times were reasonable, and the medical team provided appropriate care. It was a standard healthcare encounter.",
+        "label": 0
+    },
+    {
+        "text": "I visited Valley Health Center for a routine vaccination, and the process was hassle-free. The staff was courteous, and the vaccination was administered without any issues. It was an uneventful healthcare experience.",
+        "label": 0
+    },
+    {
+        "label": 0,
+        "text": "My day at Greenview Hospital for a blood test went smoothly. The lab technicians were efficient, and the results were delivered promptly. It was a typical medical appointment with no notable positives or negatives."
+    },
+    {
+        "label": 0,
+        "text": "I had a scheduled procedure at Willowbrook Surgical Center, and the experience was standard. The pre-operative instructions were clear, and the surgical team seemed competent. It was an ordinary healthcare encounter."
+    },
+    {
+        "text": "My recent visit to Maplewood Clinic for a consultation was unremarkable. The doctor provided the necessary information, and the administrative process was straightforward. It was a routine healthcare appointment.",
+        "label": 0
+    },
+    {
+        "label": 0,
+        "text": "I had a follow-up appointment at Riverside Health Center, and the experience was as expected. The wait times were reasonable, and the healthcare provider addressed my concerns adequately. It was a typical visit to a medical facility."
+    },
+    {
+        "label": 0,
+        "text": "My visit to Evergreen Medical Center for a minor injury was standard. The nurse practitioner provided basic care, and the wait times were acceptable. It was an ordinary healthcare encounter with no particular positives or negatives."
+    },
+    {
+        "text": "I had a routine dental checkup at Oakwood Dental Clinic, and the experience was uneventful. The dentist conducted the examination efficiently, and the staff was courteous. It was a typical dental appointment with no noteworthy aspects.",
+        "label": 0
+    },
+    {
+        "label": 0,
+        "text": "My recent visit to Lakeside Hospital was uneventful. The staff provided standard care, and the facilities were clean and well-maintained. It was a typical healthcare encounter."
+    },
+    {
+        "label": 0,
+        "text": "I had a routine checkup at Sunset Clinic, and everything proceeded as expected. The administrative process was smooth, and the doctor addressed my health concerns professionally. It was a standard medical appointment."
+    },
+    {
+        "text": "My recent trip to Meadowside General Hospital for a minor injury was straightforward. The wait times were reasonable, and the medical team provided appropriate care. It was a typical healthcare visit.",
+        "label": 0
+    },
+    {
+        "text": "I visited Elmwood Health Center for a vaccination, and the process went smoothly. The healthcare professionals were efficient, and the vaccination was administered without any issues. It was an uneventful healthcare experience.",
+        "label": 0
+    },
+    {
+        "label": 0,
+        "text": "My day at Cascade Clinic for a blood test was unremarkable. The lab technicians were efficient, and the results were delivered promptly. It was a routine medical appointment."
+    },
+    {
+        "label": 0,
+        "text": "I had a scheduled procedure at Pinecrest Surgical Center, and the experience was standard. The pre-operative instructions were clear, and the surgical team seemed competent. It was an ordinary healthcare encounter."
+    },
+    {
+        "text": "My recent visit to Brookside Clinic for a consultation was unremarkable. The doctor provided the necessary information, and the administrative process was straightforward. It was a typical healthcare appointment.",
+        "label": 0
+    },
+    {
+        "text": "I had a follow-up appointment at Valley Regional Health Center, and the experience met my expectations. The wait times were reasonable, and the healthcare provider addressed my concerns adequately. It was a standard visit to a medical facility.",
+        "label": 0
+    },
+    {
+        "text": "My visit to Greenfield Medical Center for a minor injury was standard. The nurse practitioner provided basic care, and the wait times were acceptable. It was an ordinary healthcare encounter with no particular positives or negatives.",
+        "label": 0
+    },
+    {
+        "text": "I had a routine dental checkup at Willowbrook Dental Clinic, and the experience was uneventful. The dentist conducted the examination efficiently, and the staff was courteous. It was a typical dental appointment with no noteworthy aspects.",
+        "label": 0
+    },
+    {
+        "label": 0,
+        "text": "My recent visit to Pine Valley Hospital was standard. The healthcare professionals provided the necessary care, and the facilities were clean and well-maintained. It was an uneventful healthcare encounter."
+    },
+    {
+        "text": "I had a routine checkup at Cedar Grove Clinic, and the appointment proceeded as expected. The administrative process was smooth, and the doctor addressed my health concerns professionally. It was a typical medical visit.",
+        "label": 0
+    },
+    {
+        "text": "My recent trip to Hillside General Hospital for a minor injury was straightforward. The wait times were reasonable, and the medical team provided appropriate care. It was a standard healthcare visit.",
+        "label": 0
+    },
+    {
+        "text": "I visited Maplewood Health Center for a vaccination, and the process went smoothly. The healthcare professionals were efficient, and the vaccination was administered without any issues. It was an uneventful healthcare experience.",
+        "label": 0
+    },
+    {
+        "label": 0,
+        "text": "My day at Willowside Clinic for a blood test was unremarkable. The lab technicians were efficient, and the results were delivered promptly. It was a routine medical appointment."
+    },
+    {
+        "label": 0,
+        "text": "My recent visit to Hillcrest Medical Center was uneventful. The healthcare professionals provided the necessary care, and the facilities were clean and well-maintained. It was a typical healthcare encounter."
+    },
+    {
+        "text": "I had a routine checkup at Pineview Clinic, and the appointment proceeded as expected. The administrative process was smooth, and the doctor addressed my health concerns professionally. It was a standard medical visit.",
+        "label": 0
+    },
+    {
+        "text": "My recent trip to Summitview General Hospital for a minor injury was straightforward. The wait times were reasonable, and the medical team provided appropriate care. It was a standard healthcare visit.",
+        "label": 0
+    },
+    {
+        "text": "I visited Greenway Health Center for a vaccination, and the process went smoothly. The healthcare professionals were efficient, and the vaccination was administered without any issues. It was an uneventful healthcare experience.",
+        "label": 0
+    },
+    {
+        "text": "My day at Cedarview Clinic for a blood test was unremarkable. The lab technicians were efficient, and the results were delivered promptly. It was a routine medical appointment.",
+        "label": 0
+    },
+    {
+        "text": "I had a scheduled procedure at Brookside Surgical Center, and the experience was standard. The pre-operative instructions were clear, and the surgical team seemed competent. It was an ordinary healthcare encounter.",
+        "label": 0
+    },
+    {
+        "text": "My recent visit to Maplewood Clinic for a consultation was unremarkable. The doctor provided the necessary information, and the administrative process was straightforward. It was a typical healthcare appointment.",
+        "label": 0
+    },
+    {
+        "text": "I had a follow-up appointment at Valley Health Center, and the experience met my expectations. The wait times were reasonable, and the healthcare provider addressed my concerns adequately. It was a standard visit to a medical facility.",
+        "label": 0
+    },
+    {
+        "text": "My visit to Greenfield Medical Center for a minor injury was standard. The nurse practitioner provided basic care, and the wait times were acceptable. It was an ordinary healthcare encounter with no particular positives or negatives.",
+        "label": 0
+    },
+    {
+        "label": 0,
+        "text": "I had a routine dental checkup at Willowview Dental Clinic, and the experience was uneventful. The dentist conducted the examination efficiently, and the staff was courteous. It was a typical dental appointment with no noteworthy aspects."
+    },
+    {
+        "label": 0,
+        "text": "My recent visit to Oakwood General Hospital was uneventful. The healthcare professionals provided the necessary care, and the facilities were clean and well-maintained. It was a typical healthcare encounter."
+    },
+    {
+        "text": "I had a routine checkup at Pinecrest Clinic, and the appointment proceeded as expected. The administrative process was smooth, and the doctor addressed my health concerns professionally. It was a standard medical visit.",
+        "label": 0
+    },
+    {
+        "text": "My recent trip to Cedarview General Hospital for a minor injury was straightforward. The wait times were reasonable, and the medical team provided appropriate care. It was a standard healthcare visit.",
+        "label": 0
+    },
+    {
+        "label": 0,
+        "text": "I visited Willowside Health Center for a vaccination, and the process went smoothly. The healthcare professionals were efficient, and the vaccination was administered without any issues. It was an uneventful healthcare experience."
+    },
+    {
+        "text": "My day at Greenway Clinic for a blood test was unremarkable. The lab technicians were efficient, and the results were delivered promptly. It was a routine medical appointment.",
+        "label": 0
+    },
+    {
+        "text": "I had a scheduled procedure at Valleyview Surgical Center, and the experience was standard. The pre-operative instructions were clear, and the surgical team seemed competent. It was an ordinary healthcare encounter.",
+        "label": 0
+    },
+    {
+        "label": 0,
+        "text": "My recent visit to Brookside Clinic for a consultation was unremarkable. The doctor provided the necessary information, and the administrative process was straightforward. It was a typical healthcare appointment."
+    },
+    {
+        "label": 0,
+        "text": "I had a follow-up appointment at Summit Health Center, and the experience met my expectations. The wait times were reasonable, and the healthcare provider addressed my concerns adequately. It was a standard visit to a medical facility."
+    },
+    {
+        "label": 0,
+        "text": "My visit to Greenfield Medical Center for a minor injury was standard. The nurse practitioner provided basic care, and the wait times were acceptable. It was an ordinary healthcare encounter with no particular positives or negatives."
+    },
+    {
+        "text": "I had a routine dental checkup at Mapleview Dental Clinic, and the experience was uneventful. The dentist conducted the examination efficiently, and the staff was courteous. It was a typical dental appointment with no noteworthy aspects.",
+        "label": 0
+    }
+]
