@@ -1,39 +1,72 @@
-import json
+from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
+from torch.utils.data import DataLoader, TensorDataset, random_split
+from torch import nn, optim
 import torch
-import torch.nn as nn
-import torch.optim as optim
-from sklearn.model_selection import train_test_split
-from transformers import BertTokenizer, BertForSequenceClassification
+import json
+import logging
 
-# Load JSON dataset
-with open('reviews.json', 'r') as f:
-    data = json.load(f)
+logging.basicConfig(level=logging.INFO)
 
-texts = [item['text'] for item in data]
-labels = [item['label'] + 1 for item in data]  # Shift labels to start from 0
+class CustomDataset(torch.utils.data.Dataset):
+    def __init__(self, encodings, labels):
+        self.encodings = encodings
+        self.labels = labels
 
-# Split dataset
-texts_train, texts_val, labels_train, labels_val = train_test_split(texts, labels, test_size=0.2)
+    def __getitem__(self, idx):
+        item = {key: torch.tensor(val[idx]) for key, val in self.encodings.items()}
+        item['labels'] = torch.tensor(self.labels[idx])
+        return item
 
-# Initialize tokenizer and model
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=len(set(labels)))
+    def __len__(self):
+        return len(self.labels)
 
-optimizer = optim.AdamW(model.parameters(), lr=1e-5)
-criterion = nn.CrossEntropyLoss()
+def load_dataset(json_file_path):
+    with open(json_file_path, 'r') as f:
+        return json.load(f)
 
-# Training loop (simplified)
-for epoch in range(3):  # Change the number of epochs if needed
-    for text, label in zip(texts_train, labels_train):
-        inputs = tokenizer(text, return_tensors="pt", padding=True, truncation=True)
-        outputs = model(**inputs)
-        loss = criterion(outputs.logits, torch.tensor([label]))
-        
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
+if __name__ == "__main__":
+    logging.info("Loading the dataset...")
+    dataset = load_dataset("reviews.json")
+    texts = [item['text'] for item in dataset]
+    labels = [item['label'] + 1 for item in dataset]  # Shift labels from -1, 0, 1 to 0, 1, 2
 
-    print(f"Epoch {epoch+1} completed")
+    logging.info("Initializing the tokenizer...")
+    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+    encodings = tokenizer(texts, truncation=True, padding=True)
 
-# Save the model
-model.save_pretrained('./trained_model/')
+    logging.info("Creating a PyTorch Dataset...")
+    dataset = CustomDataset(encodings, labels)
+
+    train_size = int(0.8 * len(dataset))
+    val_size = len(dataset) - train_size
+    train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
+
+    logging.info("Setting up training configurations...")
+    training_args = TrainingArguments(
+        output_dir='./trained_model',
+        num_train_epochs=1000,
+        per_device_train_batch_size=16,
+        per_device_eval_batch_size=16,
+        warmup_steps=500,
+        logging_dir='./logs',
+    )
+
+    logging.info("Initializing the model...")
+    model = BertForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=3)
+
+    logging.info("Initializing the Trainer...")
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_dataset,
+        eval_dataset=val_dataset
+    )
+
+    logging.info("Starting training...")
+    trainer.train()
+
+    logging.info("Saving the trained model...")
+    model.save_pretrained('./trained_model')
+    tokenizer.save_pretrained('./trained_model')
+
+    logging.info("Training complete.")

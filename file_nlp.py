@@ -1,83 +1,90 @@
 from textblob import TextBlob
 import os
-from transformers import BertTokenizer, BertForSequenceClassification
 import torch
+import logging
+from transformers import BertTokenizer, BertForSequenceClassification
 
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-model = BertForSequenceClassification.from_pretrained('bert-base-uncased')
+# Initialize logging
+logging.basicConfig(level=logging.INFO)
+
+# Updated label mapping
+sentiment_map = {0: "Negative", 1: "Neutral", 2: "Positive"}
+
+try:
+    tokenizer = BertTokenizer.from_pretrained('./trained_model/')
+    model = BertForSequenceClassification.from_pretrained('./trained_model/')
+except Exception as e:
+    logging.error(f"Failed to load model or tokenizer: {e}")
+    exit(1)
 
 def classify_sentiment(text):
-    inputs = tokenizer(text, return_tensors="pt", padding=True, truncation=True)
-    outputs = model(**inputs)
-    logits = outputs.logits
-    softmax = torch.nn.functional.softmax(logits, dim=1)
-    prediction = torch.argmax(softmax, dim=1)
-    sentiment_map = {0: "Negative", 1: "Positive"}
-    human_readable_label = sentiment_map.get(prediction.item(), "Unknown")
-    return prediction, human_readable_label
-
-def read_transcript_file(transcript_file: str):
     try:
-        print(f"Reading transcript file from {transcript_file}...")
-        with open(transcript_file, 'r') as file:
-            transcript = file.read()
-        print("Transcript successfully loaded.")
-        return transcript
+        inputs = tokenizer(text, return_tensors="pt", padding=True, truncation=True)
+        outputs = model(**inputs)
+        logits = outputs.logits
+        softmax = torch.nn.functional.softmax(logits, dim=1)
+        prediction = torch.argmax(softmax, dim=1)
+        human_readable_label = sentiment_map.get(prediction.item(), "Unknown")
+        return prediction, human_readable_label
     except Exception as e:
-        print(f"An error occurred while reading the transcript file: {e}")
-        return None
+        logging.error(f"Error in sentiment classification: {e}")
+        return None, "Unknown"
 
 def analyze_text(text):
     try:
-        print("Analyzing text for sentiment...")
         blob = TextBlob(text)
         sentiment = blob.sentiment
-        print(f"Sentiment analysis complete: {sentiment}")
         return sentiment
     except Exception as e:
-        print(f"Error in text analysis: {e}")
+        logging.error(f"Error in text analysis: {e}")
 
 def load_trigger_words(file_path):
-    with open(file_path, 'r') as file:
-        return [line.strip().lower() for line in file.readlines()]
+    try:
+        with open(file_path, 'r') as file:
+            return [line.strip().lower() for line in file.readlines()]
+    except Exception as e:
+        logging.error(f"Error loading trigger words: {e}")
 
 def calculate_happiness_with_triggers(transcript, trigger_words):
     text_blob = TextBlob(transcript)
     polarity = text_blob.sentiment.polarity
     subjectivity = text_blob.sentiment.subjectivity
     happiness = (1 + polarity) * (1 - 0.5 * abs(subjectivity - 0.5))
-    found_trigger_words = []
-    for word in trigger_words:
-        if word in transcript.lower().split():
-            found_trigger_words.append(word)
-            happiness *= 0.5
+    
+    found_trigger_words = [word for word in trigger_words if word in transcript.lower().split()]
     if found_trigger_words:
-        print(f"Trigger words detected: {', '.join(found_trigger_words)}")
+        logging.info(f"Trigger words detected: {', '.join(found_trigger_words)}")
+        happiness *= 0.5
+    
     return happiness
 
 if __name__ == "__main__":
     try:
-        # Uncomment the following line to read from a transcript file
-        transcript = read_transcript_file('orlandohealth.txt')
+        trigger_words = load_trigger_words('trigger_words.txt')
+        transcript_dir = 'transcripts/'
+        
+        for filename in os.listdir(transcript_dir):
+            if filename.endswith(".txt"):
+                filepath = os.path.join(transcript_dir, filename)
+                
+                with open(filepath, 'r') as f:
+                    transcript = f.read()
+                
+                logging.info(f"Analyzing {filename}...")
+                
+                happiness = calculate_happiness_with_triggers(transcript, trigger_words)
+                logging.info(f"Happiness Score considering triggers: {happiness}")
 
-        if transcript:
-            # Trigger words
-            trigger_words_file_path = 'trigger_words.txt'
-            trigger_words = load_trigger_words(trigger_words_file_path)
+                predicted_label, human_readable_label = classify_sentiment(transcript)
+                logging.info(f"Predicted Transformer Sentiment (tensor): {predicted_label}")
+                logging.info(f"Predicted Transformer Sentiment (human-readable): {human_readable_label}")
 
-            happiness = calculate_happiness_with_triggers(transcript, trigger_words)
-            print(f"Happiness Score considering triggers: {happiness}")
-
-            predicted_label, human_readable_label = classify_sentiment(transcript)
-            print(f"Predicted Transformer Sentiment (tensor): {predicted_label}")
-            print(f"Predicted Transformer Sentiment (human-readable): {human_readable_label}")
-
-            sentiment = analyze_text(transcript)
-            if sentiment:
-                print(f"Sentiment: {sentiment}")    
-                print(f"Happiness Score: {happiness}")
-        else:
-            print("Transcription or Sentiment Analysis failed. Check above messages for details.")
-
+                sentiment = analyze_text(transcript)
+                if sentiment:
+                    logging.info(f"Sentiment: {sentiment}")
+                    logging.info(f"Happiness Score: {happiness}\n")
+                else:
+                    logging.error("Sentiment analysis failed.")
+                    
     except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+        logging.error(f"An unexpected error occurred: {e}")
