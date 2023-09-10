@@ -38,25 +38,40 @@ This project aims to provide sentiment analysis and happiness scoring for transc
 
 ## Usage
 
+### You still need to have a 'review' or 'comment' in the transcripts directory. `nlp.py` is designed to be used in conjunction with Google Cloud Platform for translating Speech to Text, then analyzing the outcome. While the `file_nlp.py` is meant to simply be used to analyze the transcripts.
+
 ### Data Preparation and Training
 
-Run the following command to prepare the dataset and train the BERT-based model:
+**WARNING** The larger your cycles, the larger the space the model consumes, the current training model consumes ~60gb @ 1000 epochs. Adjust accordingly.
+
+Run the following command to prepare the dataset and train the BERT-based model: 
 
 ```bash
-python data_preparation_and_training.py
+python you_are_not_prepared.py
 ```
 
 ### Sentiment Analysis
 
-Run the following command:
+Run the following command to read from the transcript directory and output the value of each file:
 
 ```bash
-python sentiment_analysis.py
+python file_nlp.py
 ```
+
 
 ### Troubleshooting
 
-1. Ensure that the trained_model directory exists and contains the model files (config.json, pytorch_model.bin, vocab.txt).
-2. If you run into any tokenization issues, make sure the tokenizer files are properly saved in the trained_model directory.
-3. Make sure to use Python 3.7 or later versions.
+1. Ensure that the `trained_model` directory exists and contains the model files (`config.json`, `pytorch_model.bin`, `vocab.txt`. The first two are generated when first training the model with `you_are_not_prepared.py`).
+2. If you run into any tokenization issues, make sure the tokenizer files are properly saved in the `trained_model` directory.
+3. Make sure to use `Python 3.7` or later versions.
 4. Make sure you have enough space to train the model.
+
+### To Do
+
+Adjust Happiness algorithm since its' VERY harsh. 
+Consider `positive` words as well as the currently used negative words.
+Better logging.
+Maybe some colors, people like colors.
+Modulize.
+Add larger data to the training set.
+and other stuffs.
