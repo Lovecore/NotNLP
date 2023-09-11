@@ -1,20 +1,19 @@
-# Sentiment Analysis and Happiness Scoring with BERT and TextBlob
+# Sentiment Analysis and Happiness Scoring with BERT
 
 ## Overview
 
-This project aims to provide sentiment analysis and happiness scoring for transcripts using a fine-tuned BERT model and TextBlob. The project has the following features:
+This project aims to provide sentiment analysis and happiness scoring for transcripts using a fine-tuned BERT. The project has the following features:
 
 - Sentiment Classification: Classify the sentiment of the text as Negative, Neutral, or Positive using a BERT-based classifier.
-- Happiness Scoring: Calculate a happiness score using the TextBlob library and a set of trigger words.
-- Trigger Word Detection: Identify and flag specific words in the text that can alter the happiness score.
 - Batch Processing: Ability to analyze multiple transcripts in a directory.
-
+- Output feelings of the conversation based on an [emotion model](https://huggingface.co/j-hartmann/emotion-english-distilroberta-base)
+- 
 ## Prerequisites
 
 - Python 3.7+
 - PyTorch
 - Transformers
-- TextBlob
+
 
 ## Installation
 
