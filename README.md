@@ -52,10 +52,10 @@ python you_are_not_prepared.py
 
 ### Sentiment Analysis
 
-Run the following command to read from the transcript directory and output the value of each file:
+Run the following command to read from the transcript directory and output the value of each file. There are commands you can specify in order to get a bit more control over the run. You can specify: `--transcript_dir`, `--trigger_file`, `--model_dir`, `--context`, `--min_happiness`, `--min_sentence_length`, `--output_file` and the `--verbose` flag. 
 
 ```bash
-python file_nlp.py
+python file_nlp.py --verbose
 ```
 
 
