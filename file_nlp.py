@@ -1,7 +1,7 @@
 import os
 import argparse
 from textblob import TextBlob
-from transformers import BertTokenizer, BertForSequenceClassification
+from transformers import BertTokenizer, BertForSequenceClassification, AutoModelForSequenceClassification, AutoTokenizer
 import torch
 
 # Initialize Argument Parser
@@ -19,9 +19,27 @@ args = parser.parse_args()
 # Update the sentiment mapping to reflect shifted labels
 sentiment_map = {0: "Negative", 1: "Neutral", 2: "Positive"}
 
+# Add an emotion label map
+emotion_label_map = {0: "Sad", 1: "Happy", 2: "Angry", 3: "Neutral"}
+
+# Initialize emotion classifier
+emotion_tokenizer = AutoTokenizer.from_pretrained('bert-for-emotion')
+emotion_model = AutoModelForSequenceClassification.from_pretrained('bert-for-emotion')
+
 tokenizer = BertTokenizer.from_pretrained(args.model_dir)
 model = BertForSequenceClassification.from_pretrained(args.model_dir)
 
+# Function to classify emotion
+def classify_emotion(text):
+    inputs = emotion_tokenizer(text, return_tensors="pt", padding=True, truncation=True)
+    outputs = emotion_model(**inputs)
+    logits = outputs.logits
+    softmax = torch.nn.functional.softmax(logits, dim=1)
+    prediction = torch.argmax(softmax, dim=1)
+    human_readable_emotion = emotion_label_map.get(prediction.item(), "Unknown")
+    return human_readable_emotion
+
+# Function to classify sentiment
 def classify_sentiment(text):
     inputs = tokenizer(text, return_tensors="pt", padding=True, truncation=True)
     outputs = model(**inputs)
@@ -31,19 +49,23 @@ def classify_sentiment(text):
     human_readable_label = sentiment_map.get(prediction.item(), "Unknown")
     return prediction, human_readable_label
 
+# Function to read transcript
 def read_transcript_from_file(filename):
     with open(filename, 'r') as f:
         return f.read()
-
+    
+# Blog analysis
 def analyze_text(text):
     blob = TextBlob(text)
     sentiment = blob.sentiment
     return sentiment
 
+# Trigger words loader
 def load_trigger_words(file_path):
     with open(file_path, 'r') as file:
         return [line.strip().lower() for line in file.readlines()]
 
+# Some hapiness magic. Needs to adjust this algo
 def calculate_happiness_with_triggers(transcript, trigger_words):
     text_blob = TextBlob(transcript)
     polarity = text_blob.sentiment.polarity

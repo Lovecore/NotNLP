@@ -25,8 +25,15 @@ def load_dataset(json_file_path):
         return json.load(f)
 
 if __name__ == "__main__":
-    logging.info("Loading the dataset...")
-    dataset = load_dataset("reviews.json")
+    parser = argparse.ArgumentParser(description='Train a BERT model for sentiment analysis.')
+    parser.add_argument('--data', type=str, default='reviews.json', help='Path to the dataset JSON file.')
+    parser.add_argument('--epochs', type=int, default=1000, help='Number of training epochs.')
+    parser.add_argument('--train_batch_size', type=int, default=16, help='Training batch size.')
+    parser.add_argument('--eval_batch_size', type=int, default=16, help='Evaluation batch size.')
+    args = parser.parse_args()
+
+    logging.info(f"Loading the dataset from {args.data}...")
+    dataset = load_dataset(args.data)
     texts = [item['text'] for item in dataset]
     labels = [item['label'] + 1 for item in dataset]  # Shift labels from -1, 0, 1 to 0, 1, 2
 
@@ -37,16 +44,16 @@ if __name__ == "__main__":
     logging.info("Creating a PyTorch Dataset...")
     dataset = CustomDataset(encodings, labels)
 
-    train_size = int(0.8 * len(dataset))
+    train_size = int(0.8 * len(dataset)) # Thijs might be wrong
     val_size = len(dataset) - train_size
     train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
 
     logging.info("Setting up training configurations...")
     training_args = TrainingArguments(
         output_dir='./trained_model',
-        num_train_epochs=1000,
-        per_device_train_batch_size=16,
-        per_device_eval_batch_size=16,
+        num_train_epochs=args.epochs,
+        per_device_train_batch_size=args.train_batch_size,
+        per_device_eval_batch_size=args.eval_batch_size,
         warmup_steps=500,
         logging_dir='./logs',
     )

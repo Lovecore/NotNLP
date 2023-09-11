@@ -42,9 +42,9 @@ This project aims to provide sentiment analysis and happiness scoring for transc
 
 ### Data Preparation and Training
 
-**WARNING** The larger your cycles, the larger the space the model consumes, the current training model consumes ~60gb @ 1000 epochs. Adjust accordingly.
+**WARNING** The larger your cycles, the larger the space the model consumes, the current training model consumes ~30gb @ 1000 epochs. Adjust accordingly.
 
-Run the following command to prepare the dataset and train the BERT-based model: 
+Run the following command to prepare the dataset and train the BERT-based model. You can specify a series of options: `--data`, `--epochs`, `--train_batch_size` and `--eval_batch_size`.
 
 ```bash
 python you_are_not_prepared.py
@@ -52,7 +52,7 @@ python you_are_not_prepared.py
 
 ### Sentiment Analysis
 
-Run the following command to read from the transcript directory and output the value of each file. There are commands you can specify in order to get a bit more control over the run. You can specify: `--transcript_dir`, `--trigger_file`, `--model_dir`, `--context`, `--min_happiness`, `--min_sentence_length`, `--output_file` and the `--verbose` flag. 
+Run the following command to read from the transcript directory and output the value of each file. There are commands you can specify in order to get a bit more control over the run. You can specify a series of options: `--transcript_dir`, `--trigger_file`, `--model_dir`, `--context`, `--min_happiness`, `--min_sentence_length`, `--output_file` and the `--verbose` flag. 
 
 ```bash
 python file_nlp.py --verbose
