@@ -7,13 +7,14 @@ This project aims to provide sentiment analysis and happiness scoring for transc
 - Sentiment Classification: Classify the sentiment of the text as Negative, Neutral, or Positive using a BERT-based classifier.
 - Batch Processing: Ability to analyze multiple transcripts in a directory.
 - Output feelings of the conversation based on an [emotion model](https://huggingface.co/j-hartmann/emotion-english-distilroberta-base)
-- 
+
 ## Prerequisites
 
 - Python 3.7+
 - PyTorch
 - Transformers
-
+- Termcolor
+- Argparse
 
 ## Installation
 
