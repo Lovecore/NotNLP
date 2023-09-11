@@ -15,6 +15,7 @@ parser.add_argument('--emotion_model_dir', default='./emotion_model/', type=str,
 #parser.add_argument('--context', default='general', type=str, help='Context for sentiment and happiness analysis')
 #parser.add_argument('--min_happiness', default=0.5, type=float, help='Minimum happiness score for "happy" label')
 #parser.add_argument('--min_sentence_length', default=5, type=int, help='Minimum sentence length for sentiment analysis')
+parser.add_argument('--show_percent', action='store_true', help='Display emotion probabilities as percentages')
 parser.add_argument('--output_file', default='results.txt', type=str, help='Output file for saving results')
 parser.add_argument('--verbose', action='store_true', help='Enable verbose mode')
 args = parser.parse_args()
@@ -29,7 +30,7 @@ model = BertForSequenceClassification.from_pretrained(args.sentiment_model_dir)
 # Initialize tokenizer and model for emotion analysis
 emotion_tokenizer = AutoTokenizer.from_pretrained("j-hartmann/emotion-english-distilroberta-base")
 emotion_model = AutoModelForSequenceClassification.from_pretrained("j-hartmann/emotion-english-distilroberta-base")
-emotion_map = {0: "anger", 1: "fear", 2: "joy", 3: "love", 4: "sadness", 5: "surprise"}  # Update based on the actual model
+emotion_map = {0: "anger", 1: "disgust", 2: "fear", 3: "joy", 4: "neutral", 5: "sadness", 6: "surprise"}  # Update based on the actual model
 
 # The colors Duke, the colors!
 def print_colored(text, color):
@@ -50,19 +51,22 @@ def classify_emotion(text):
     return emotion_map[prediction], emotion_probability
 
 # Formatting the emotion probabilities for better readability
-def format_emotion_probability(emotion_probability):
-    formatted = []
-    for k, v in emotion_probability.items():
-        color_map = {
-            'anger': 'red',
-            'fear': 'white',
-            'joy': 'blue',
-            'love': 'magenta',  # Pink doesn't exist but magenta is close
-            'sadness': 'yellow',
-            'surprise': 'cyan'  # Purple doesn't exist but cyan is close
-        }
-        formatted.append(f"{colored(k, color_map[k])}: {v:.4f}")
-    return f"Predicted Emotion Probabilities:\n" + '\n'.join(formatted)
+def format_emotion_probability(emotion_probability, show_percent=False):
+    color_map = {
+        "anger": "red",
+        "disgust": "magenta",
+        "fear": "white",
+        "joy": "cyan",
+        "neutral": "white",
+        "sadness": "yellow",
+        "surprise": "magenta"
+    }
+    if show_percent:
+        formatted_emotion_probability = '\n'.join([f"{colored(k, color_map[k])}: {v*100:.2f}%" for k, v in emotion_probability.items()])
+    else:
+        formatted_emotion_probability = '\n'.join([f"{colored(k, color_map[k])}: {v:.4f}" for k, v in emotion_probability.items()])
+    return f"Predicted Emotion Probabilities:\n{formatted_emotion_probability}"
+
 
 # Function to classify sentiment
 def classify_sentiment(text):
@@ -126,7 +130,7 @@ if __name__ == "__main__":
                 
                 if args.verbose:
                     print(f"Predicted Sentiment: {colored_sent}")
-                    print(format_emotion_probability(emotion_probability))
+                    print(format_emotion_probability(emotion_probability, show_percent=args.show_percent))
 
                 # Save or print results
                 if args.output_file:
