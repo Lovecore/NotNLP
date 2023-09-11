@@ -35,14 +35,9 @@ emotion_map = {0: "anger", 1: "fear", 2: "joy", 3: "love", 4: "sadness", 5: "sur
 def print_colored(text, color):
     print(colored(text, color))
 
-def colored_sentiment(text):
-    sentiment = classify_sentiment(text)
-    if sentiment == "Positive":
-        return colored(sentiment, 'green')
-    elif sentiment == "Negative":
-        return colored(sentiment, 'red')
-    else:
-        return colored(sentiment, 'yellow')
+def print_colored_sentiment(sentiment):
+    color_map = {'Negative': 'red', 'Neutral': 'yellow', 'Positive': 'green'}
+    return colored(sentiment, color_map[sentiment])
 
 # Function to classify emotion based on https://huggingface.co/j-hartmann/emotion-english-distilroberta-base
 def classify_emotion(text):
@@ -56,8 +51,18 @@ def classify_emotion(text):
 
 # Formatting the emotion probabilities for better readability
 def format_emotion_probability(emotion_probability):
-    formatted_emotion_probability = '\n'.join([f"{k}: {v:.4f}" for k, v in emotion_probability.items()])
-    return f"Predicted Emotion Probabilities:\n{formatted_emotion_probability}"
+    formatted = []
+    for k, v in emotion_probability.items():
+        color_map = {
+            'anger': 'red',
+            'fear': 'white',
+            'joy': 'blue',
+            'love': 'magenta',  # Pink doesn't exist but magenta is close
+            'sadness': 'yellow',
+            'surprise': 'cyan'  # Purple doesn't exist but cyan is close
+        }
+        formatted.append(f"{colored(k, color_map[k])}: {v:.4f}")
+    return f"Predicted Emotion Probabilities:\n" + '\n'.join(formatted)
 
 # Function to classify sentiment
 def classify_sentiment(text):
@@ -113,7 +118,8 @@ if __name__ == "__main__":
                 happiness = calculate_happiness_with_triggers(transcript, trigger_words)
 
                 # Classify sentiment and color it
-                colored_sent = colored_sentiment(transcript)
+                sentiment = classify_sentiment(transcript)
+                colored_sent = print_colored_sentiment(sentiment)
                 
                 # Classify emotion and its probabilities
                 emotion, emotion_probability = classify_emotion(transcript)
