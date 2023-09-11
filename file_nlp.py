@@ -93,17 +93,14 @@ def load_trigger_words(file_path):
         return [line.strip().lower() for line in file.readlines()]
 
 # Some happiness magic. Needs to adjust this algo
-def calculate_happiness_with_triggers(transcript, trigger_words):
-    text_blob = TextBlob(transcript)
-    polarity = text_blob.sentiment.polarity
-    subjectivity = text_blob.sentiment.subjectivity
-    happiness = (1 + polarity) * (1 - 0.5 * abs(subjectivity - 0.5))
-    found_trigger_words = []
-    for word in trigger_words:
-        if word in transcript.lower().split():
-            found_trigger_words.append(word)
-            happiness *= 0.5
-    return happiness
+# def calculate_happiness_with_triggers(transcript, trigger_words):
+#     text_blob = TextBlob(transcript)
+#     polarity = text_blob.sentiment.polarity
+#     happiness = 1 + polarity
+#     found_trigger_words = [word for word in trigger_words if word in transcript.lower().split()]
+#     for _ in found_trigger_words:
+#         happiness *= 0.5
+#     return happiness, polarity
 
 if __name__ == "__main__":
     try:
@@ -119,7 +116,8 @@ if __name__ == "__main__":
                     print(f"\nAnalyzing transcript from file: {filename}")
                 
                 # Calculate happiness
-                happiness = calculate_happiness_with_triggers(transcript, trigger_words)
+                #happiness, polarity = calculate_happiness_with_triggers(transcript, trigger_words)
+
 
                 # Classify sentiment and color it
                 sentiment = classify_sentiment(transcript)
@@ -136,15 +134,17 @@ if __name__ == "__main__":
                 if args.output_file:
                     with open(args.output_file, 'a') as f:
                         f.write(f"Results for file: {filename}\n")
+                        #f.write(f"TextBlob Sentiment (Polarity): {polarity}\n")
                         f.write(f"Predicted Sentiment: {colored_sent}\n")
                         f.write(format_emotion_probability(emotion_probability) + '\n')
-                        f.write(f"Happiness Score considering triggers: {happiness}\n")
+                        #f.write(f"Happiness Score considering triggers: {happiness}\n")
                         f.write("="*40 + "\n")
                 else:
                     print(f"Results for file: {filename}")
+                    #print(f"TextBlob Sentiment (Polarity): {polarity}")
                     print(f"Predicted Sentiment: {colored_sent}")
                     print(format_emotion_probability(emotion_probability))
-                    print(f"Happiness Score considering triggers: {happiness}")
+                    #print(f"Happiness Score considering triggers: {happiness}")
                     print("="*40)
                 
     except Exception as e:

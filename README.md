@@ -21,13 +21,13 @@ This project aims to provide sentiment analysis and happiness scoring for transc
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/sentiment-analysis.git
+    git clone https://github.com/Lovecore/NotNLP
     ```
 
 2. Change into the project directory:
 
     ```bash
-    cd sentiment-analysis
+    cd NotNLP
     ```
 
 3. Install the required packages:
