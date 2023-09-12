@@ -3,3 +3,4 @@
 results.txt
 **/sentiment_model
 **/emotion_model
+**__pycache__

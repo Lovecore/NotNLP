@@ -1,6 +1,5 @@
 import os
 import argparse
-from textblob import TextBlob
 from transformers import BertTokenizer, BertForSequenceClassification, AutoModelForSequenceClassification, AutoTokenizer
 import torch
 from torch.nn.functional import softmax
@@ -12,9 +11,6 @@ parser.add_argument('--transcript_dir', default='transcripts/', type=str, help='
 parser.add_argument('--trigger_file', default='trigger_words.txt', type=str, help='Path to trigger words file')
 parser.add_argument('--sentiment_model_dir', default='./sentiment_model/', type=str, help='Path to sentiment model directory')
 parser.add_argument('--emotion_model_dir', default='./emotion_model/', type=str, help='Path to emotion model directory')
-#parser.add_argument('--context', default='general', type=str, help='Context for sentiment and happiness analysis')
-#parser.add_argument('--min_happiness', default=0.5, type=float, help='Minimum happiness score for "happy" label')
-#parser.add_argument('--min_sentence_length', default=5, type=int, help='Minimum sentence length for sentiment analysis')
 parser.add_argument('--show_percent', action='store_true', help='Display emotion probabilities as percentages')
 parser.add_argument('--output_file', default='results.txt', type=str, help='Output file for saving results')
 parser.add_argument('--verbose', action='store_true', help='Enable verbose mode')
@@ -92,16 +88,6 @@ def load_trigger_words(file_path):
     with open(file_path, 'r') as file:
         return [line.strip().lower() for line in file.readlines()]
 
-# Some happiness magic. Needs to adjust this algo
-# def calculate_happiness_with_triggers(transcript, trigger_words):
-#     text_blob = TextBlob(transcript)
-#     polarity = text_blob.sentiment.polarity
-#     happiness = 1 + polarity
-#     found_trigger_words = [word for word in trigger_words if word in transcript.lower().split()]
-#     for _ in found_trigger_words:
-#         happiness *= 0.5
-#     return happiness, polarity
-
 if __name__ == "__main__":
     try:
         # Load trigger words
@@ -114,10 +100,6 @@ if __name__ == "__main__":
 
                 if args.verbose:
                     print(f"\nAnalyzing transcript from file: {filename}")
-                
-                # Calculate happiness
-                #happiness, polarity = calculate_happiness_with_triggers(transcript, trigger_words)
-
 
                 # Classify sentiment and color it
                 sentiment = classify_sentiment(transcript)
@@ -134,17 +116,13 @@ if __name__ == "__main__":
                 if args.output_file:
                     with open(args.output_file, 'a') as f:
                         f.write(f"Results for file: {filename}\n")
-                        #f.write(f"TextBlob Sentiment (Polarity): {polarity}\n")
                         f.write(f"Predicted Sentiment: {colored_sent}\n")
                         f.write(format_emotion_probability(emotion_probability) + '\n')
-                        #f.write(f"Happiness Score considering triggers: {happiness}\n")
                         f.write("="*40 + "\n")
                 else:
                     print(f"Results for file: {filename}")
-                    #print(f"TextBlob Sentiment (Polarity): {polarity}")
                     print(f"Predicted Sentiment: {colored_sent}")
                     print(format_emotion_probability(emotion_probability))
-                    #print(f"Happiness Score considering triggers: {happiness}")
                     print("="*40)
                 
     except Exception as e:
