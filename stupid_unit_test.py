@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import patch, Mock
 import file_nlp
+import re
 
 class TestYourMight(unittest.TestCase):
 
@@ -29,6 +30,9 @@ class TestYourMight(unittest.TestCase):
         
         result = file_nlp.classify_sentiment("I am very happy")
         self.assertIn(result, file_nlp.sentiment_map.values())  # Checking if the result is within known sentiment labels
+    
+    def strip_ansi_codes(naked): 
+        return re.sub(r'\x1B\[[0-?]*[ -/]*[@-~]', '', naked) # God damn colors
 
     def test_read_transcript_from_file(self):
         self.assertEqual(file_nlp.read_transcript_from_file('./tests/test_file.txt'), "test content")
@@ -39,9 +43,10 @@ class TestYourMight(unittest.TestCase):
     def test_format_emotion_probability(self):
         emotion_probabilities = {"anger": 0.1, "joy": 0.5, "surprise": 0.4}
         result = file_nlp.format_emotion_probability(emotion_probabilities, show_percent=True)
-        self.assertIn("anger: 10.00%", result)
-        self.assertIn("joy: 50.00%", result)
-        self.assertIn("surprise: 40.00%", result)
+        stripped_result = strip_ansi_codes(result)
+        self.assertIn("anger: 10.00%", stripped_result)
+        self.assertIn("joy: 50.00%", stripped_result)
+        self.assertIn("surprise: 40.00%", stripped_result)
 
 if __name__ == '__main__':
     unittest.main()
